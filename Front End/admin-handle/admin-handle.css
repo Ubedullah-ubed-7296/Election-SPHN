@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(196, 206, 204);
+  padding-bottom: 80px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.main-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 15px 20px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.main-bar button {
+  background-color: rgb(196, 206, 204);
+  border: 2px solid rgb(196, 206, 204);
+}
+
+.main-bar h1 {
+  font-size: 1.8rem;
+}
+
+.mode-btn {
+
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Candidate Container */
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 25px 12px;
+  position: relative;
+}
+
+/* Drop Area */
+.drop-area {
+  width: 95%;
+  max-width: 500px;
+  height: 300px;
+  padding: 30px;
+  background: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.img-view {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 2px dashed #bbb5ff;
+  background: #f7f8ff;
+  background-position: center;
+  background-size: cover;
+}
+
+.img-view img {
+  width: 80px;
+  margin-top: 25px;
+}
+
+.img-view p {
+  color: black;
+}
+
+.img-view span {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-top: 15px;
+}
+
+/* Input Section */
+.candidate-input {
+  width: 90%;
+  max-width: 500px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-input label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0 6px;
+  color: #333;
+}
+
+.candidate-input input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.candidate-input input:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 5px rgba(106, 90, 205, 0.3);
+}
+
+/* Floating + Button */
+#add-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #6a5acd;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 36px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 999;
+  transition: 0.3s ease;
+}
+
+#add-btn:hover {
+  background-color: #5945c2;
+}
+
+/* Delete Button */
+.delete-btn {
+  position: relative;
+  top: 78px;
+  right: -254px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.candidate-title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 768px) {
+  .main-bar h1 {
+    font-size: 1.5rem;
+  }
+
+  .drop-area {
+    height: 250px;
+  }
+
+  .candidate-input {
+    padding: 15px;
+    width: 95%;
+  }
+
+  .candidate-input input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  #add-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .main-bar button{
+    padding-right: 1px;
+  }
+
+  .drop-area {
+    height: 220px;
+    padding: 20px;
+  }
+
+  .img-view img {
+    width: 60px;
+  }
+
+  .candidate-input {
+    padding: 15px;
+    width: 95%;
+  }
+
+  .candidate-title {
+    font-size: 18px;
+  }
+
+  #add-btn {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .delete-btn{
+    position: relative;
+    top: 78px;
+    right: -214px;
+  }
+}
+
+@media (max-width: 510px) {
+  .delete-btn{
+    position: relative;
+    top: 78px;
+    right: -232px;
+  }
+}
+
+@media (max-width: 460px) {
+  .delete-btn{
+    position: relative;
+    top: 78px;
+    right: -207px;
+  }
+}
+
+@media (max-width: 420px) {
+  .delete-btn{
+    position: relative;
+    top: 78px;
+    right: -185px;
+  }
+}
+
+
+@media (max-width: 370px) {
+  .delete-btn{
+    position: relative;
+    top: 78px;
+    right: -165px;
+  }
+}
+
+@media (max-width: 320px) {
+  .delete-btn{
+    position: relative;
+    top: 78px;
+    right: -145px;
+  }
+}

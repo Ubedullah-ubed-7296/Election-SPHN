@@ -1,0 +1,38 @@
+.main-bar{
+    display: flex;
+    justify-content: space-between;
+    flex-direction:row;
+    align-items: center;
+
+}
+
+
+h1{
+    color: black;
+    text-align: center;
+    /* margin-top: 50px; */
+}
+
+.dark-mode {
+    background-color: rgb(62, 53, 53);
+    color: whitesmoke;
+}
+
+.dark-mode h1{
+    color: white;
+}
+
+.dark-mode .mode-btn {
+    background-color: rgb(62, 53, 53);
+    color: whitesmoke;
+    border: 2px solid rgb(62, 53, 53);
+}
+
+.mode-btn {
+    font-size: 20px;
+    padding: 0 12px;
+    border: 2px solid white;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+}

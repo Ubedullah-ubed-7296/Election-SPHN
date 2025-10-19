@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: white;
+    font-family: sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.main-bar h1{
+    margin-left: 50px;
+    margin-top: 45px;
+}
+
+.main-bar button{
+    margin-right: 50px;
+    margin-top: 45px;
+}
+
+.container{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    /* height: 80vh; */
+    flex-wrap: wrap;
+}
+
+.button-admin, .button-voter{
+    margin:50px;
+}
+
+button{
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-admin img, .button-voter img{
+    width: 45%;
+    height: 50%;
+    border-radius: 50%;
+    background-color: white;
+}
+
+button p{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+
+@media screen and (max-width: 768px) {
+  .main-bar h1{
+    font-size: 28px;
+    margin-top: 23px;
+    margin-bottom: 10px;
+  }
+
+  .main-bar button{
+    margin-top: 24px;
+    margin-right: 33px;
+  }
+
+  .main-bar{
+    margin-top: 10px;
+  }
+
+  button p{
+    font-size: 1.3rem;
+  }
+
+  button{
+    padding: 15px 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-bar h1{
+    font-size: 23px;
+    margin-left: 15px;
+  }
+  
+  .main-bar button{
+    margin-right: 2px;
+    margin-top: 11px;
+  }
+
+  button p{
+    font-size: 1.1rem;
+  }
+}
