@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link class="round-icon" rel="icon" href="https://images.shiksha.com/mediadata/images/1684329152phpkX3pkn.jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../ldm-mode/ldm.css">
+    <title>Vote - Election Sphn</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        .main-bar-container {
+            background-color: #4a90e2;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+        }
+
+        .mode-btn {
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+        }
+
+        .club-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+        }
+
+        .box-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .box-img {
+            background-size: cover;
+            background-position: center;
+            height: 150px;
+            border-radius: 8px;
+        }
+
+        .box-content h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .vote-btn {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .vote-btn:hover {
+            background: #357ab8;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.3em;
+            cursor: pointer;
+            color: #555;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .candidate-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .candidate-card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #4a90e2;
+        }
+
+        .thank-you {
+            display: none;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-bar-container main-bar">
+        <h1>Vote for Your Club Leaders</h1>
+        <button class="mode-btn" onclick="toggleMode()"><i class="fa-solid fa-moon"></i></button>
+    </div>
+
+    <div class="club-section">
+        <!-- Same club boxes as admin page -->
+        <div class="box"><div class="box-content"><h3>Literary & Fine Arts Club</h3><div class="box-img" style="background-image: url('../images/Fine-Arts-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Literary & Fine Arts Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Cultural Club</h3><div class="box-img" style="background-image: url('../images/Cultural-Club.jpeg');"></div><a href="#" class="vote-btn" onclick="openVote('Cultural Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Multimedia Club</h3><div class="box-img" style="background-image: url('../images/Trainta.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Multimedia Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>SPHN Radio Club</h3><div class="box-img" style="background-image: url('../images/Stereo-Hearts-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('SPHN Radio Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Sports Club</h3><div class="box-img" style="background-image: url('../images/Sankalp-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Sports Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Fitness Club</h3><div class="box-img" style="background-image: url('../images/Yogyata-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Fitness Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Coder Club</h3><div class="box-img" style="background-image: url('../images/Coder-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Coder Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Gamer Club</h3><div class="box-img" style="background-image: url('../images/Gamer-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Gamer Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Creator Club</h3><div class="box-img" style="background-image: url('../images/Creator-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Creator Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Robotech Club</h3><div class="box-img" style="background-image: url('../images/Robotech-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Robotech Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>NSS Club</h3><div class="box-img" style="background-image: url('../images/NSS-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('NSS Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>ECO Club</h3><div class="box-img" style="background-image: url('../images/ECO-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('ECO Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Women's Chapter Club</h3><div class="box-img" style="background-image: url('../images/Women-Chapter-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Women\'s Chapter Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>AI Fusion Club</h3><div class="box-img" style="background-image: url('../images/AI-Fusion-Club.jpeg');"></div><a href="#" class="vote-btn" onclick="openVote('AI Fusion Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Cyber Genz Club</h3><div class="box-img" style="background-image: url('../images/Cyber-Genz-Club.webp');"></div><a href="#" class="vote-btn" onclick="openVote('Cyber Genz Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Seabytes Club</h3><div class="box-img" style="background-image: url('../images/Seabytes-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Seabytes Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>SSLITE Club</h3><div class="box-img" style="background-image: url('../images/SSLITE-Club.png');"></div><a href="#" class="vote-btn" onclick="openVote('SSLITE Club')">Vote</a></div></div>
+        <div class="box"><div class="box-content"><h3>Datanauts Club</h3><div class="box-img" style="background-image: url('../images/Datanauts-Club.jpg');"></div><a href="#" class="vote-btn" onclick="openVote('Datanauts Club')">Vote</a></div></div>
+    </div>
+
+    <!-- Voting Modal -->
+    <div id="voteModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="clubTitle"></h2>
+            <p>Select a Position:</p>
+            <select id="positionSelect" onchange="loadCandidates()">
+                <option value="">-- Choose Position --</option>
+                <option>President</option>
+                <option>Vice President</option>
+                <option>Secretary</option>
+            </select>
+
+            <div id="candidateContainer"></div>
+            <p class="thank-you" id="thankYouMsg">✅ Thank you for voting!</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function openVote(club) {
+            document.getElementById("voteModal").style.display = "flex";
+            document.getElementById("clubTitle").textContent = club;
+            document.getElementById("candidateContainer").innerHTML = "";
+            document.getElementById("thankYouMsg").style.display = "none";
+            document.getElementById("positionSelect").value = "";
+        }
+
+        function closeModal() {
+            document.getElementById("voteModal").style.display = "none";
+        }
+
+        function loadCandidates() {
+            const pos = document.getElementById("positionSelect").value;
+            const container = document.getElementById("candidateContainer");
+            container.innerHTML = "";
+
+            const sampleCandidates = [
+                { name: "Aarav Kumar", img: "https://randomuser.me/api/portraits/men/12.jpg" },
+                { name: "Riya Sharma", img: "https://randomuser.me/api/portraits/women/20.jpg" }
+            ];
+
+            if (pos) {
+                sampleCandidates.forEach(c => {
+                    const div = document.createElement("div");
+                    div.classList.add("candidate-card");
+                    div.innerHTML = `
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <img src="${c.img}" alt="${c.name}">
+                            <strong>${c.name}</strong>
+                        </div>
+                        <button class="vote-btn" onclick="vote('${c.name}', '${pos}')">Vote</button>
+                    `;
+                    container.appendChild(div);
+                });
+            }
+        }
+
+        function vote(name, pos) {
+            document.getElementById("candidateContainer").innerHTML = "";
+            const msg = document.getElementById("thankYouMsg");
+            msg.style.display = "block";
+            msg.textContent = `✅ You voted for ${name} as ${pos}. Thank you!`;
+        }
+
+        window.onclick = function (e) {
+            const modal = document.getElementById("voteModal");
+            if (e.target === modal) closeModal();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Registration - Election Sphn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="https://images.shiksha.com/mediadata/images/1684329152phpkX3pkn.jpeg">
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color, #f0f2f5);
+            color: var(--text-color, #000);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .main-bar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.5em;
+        }
+
+        .mode-btn {
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            width: 100%;
+            margin-top: 80px;
+        }
+
+        .register-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode .register-box {
+            background: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .register-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .register-box input {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        body.dark-mode .register-box input {
+            background: #2a2a2a;
+            border: 1px solid #555;
+            color: #fff;
+        }
+
+        #register-btn {
+            background: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #register-btn:hover {
+            background: #357ab8;
+        }
+
+        .back-link {
+            margin-top: 15px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .main-bar {
+                font-size: 1.2em;
+            }
+
+            .register-box {
+                width: 85%;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-bar">
+        <h1>Voter Registration</h1>
+        <button class="mode-btn" onclick="myFunction()"><i class="fa-solid fa-moon"></i></button>
+    </div>
+
+    <div class="container">
+        <div class="register-box">
+            <h2>Create Voter Account</h2>
+            <form>
+                <input type="text" placeholder="Full Name" required>
+                <input type="text" placeholder="Roll Number" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit" id="register-btn">Register</button>
+            </form>
+           <p class="back-link"><a href="./voter-login.html"><i class="fa-solid fa-arrow-left"></i> Back to Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+
+</html>

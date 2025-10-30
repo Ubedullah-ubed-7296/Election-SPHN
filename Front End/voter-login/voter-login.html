@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Login - Election Sphn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="https://images.shiksha.com/mediadata/images/1684329152phpkX3pkn.jpeg">
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color, #f0f2f5);
+            color: var(--text-color, #000);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .main-bar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.5em;
+        }
+
+        .mode-btn {
+            position: absolute;
+            right: 20px;
+            top: 12px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.3em;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            width: 100%;
+            margin-top: 80px;
+        }
+
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode .login-box {
+            background: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .login-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-box input {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        body.dark-mode .login-box input {
+            background: #2a2a2a;
+            border: 1px solid #555;
+            color: #fff;
+        }
+
+        #login-btn {
+            background: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #login-btn:hover {
+            background: #357ab8;
+        }
+
+        .register-link {
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+
+        .register-link a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            margin-top: 15px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .main-bar {
+                font-size: 1.2em;
+            }
+
+            .login-box {
+                width: 85%;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-bar">
+        <h1>Voter Login</h1>
+        <button class="mode-btn" onclick="toggleMode()"><i class="fa-solid fa-moon"></i></button>
+    </div>
+
+    <div class="container">
+        <div class="login-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/1672/1672309.png" alt="Voter Icon" class="login-icon">
+            <h2>Sign In as Voter</h2>
+            <form onsubmit="return handleLogin(event)">
+                <input type="text" id="roll" placeholder="Roll Number" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="login-btn">Login</button>
+            </form>
+            <p class="register-link">Don’t have an account? <a href="./voter-register.html">Register here</a></p>
+            <p class="back-link"><a href="../index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        // Fake login just for front-end flow
+        function handleLogin(e) {
+            e.preventDefault();
+            const roll = document.getElementById("roll").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (roll !== "" && password !== "") {
+                // Simulate success login
+                alert("Login successful! Redirecting to vote page...");
+                window.location.href = "../voter-vote/voter-vote.html"; // Redirect to voting page
+            } else {
+                alert("Please enter both Roll Number and Password.");
+            }
+        }
+    </script>
+</body>
+
+</html>
